@@ -18,21 +18,29 @@ function nombreUsuario() {
   }
 }
 
-nombreUsuario()
+nombreUsuario();
 
+function edadUsuario() {
+  checked = 0;
+  let edad = prompt("Ingresa tu edad");
 
-let edad = parseInt(prompt("Por favor, ingrese su edad:"));
-
-if (!isNaN(edad))
-  if (edad >= 18) {
-    alert("Podes Ingresar, sos mayor de edad.");
-  } else {
-    alert("Sos menor de edad, no podes ingresar");
+  while (checked === 0) {
+    if (!isNaN(edad))
+      if (edad === "") {
+        alert("No ingresaste tu edad");
+        edad = prompt("Ingresa tu edad por favor");
+      } else if (edad >= 18) {
+        alert("Podes Ingresar, sos mayor de edad.");
+        checked = 1;
+      } else {
+        alert("Sos menor de edad, no podes ingresar");
+        break;
+      }
+    else {
+      alert("La entrada no es un número válido.");
+      edad = prompt("Ingresa tu edad por favor")
+    }
   }
-else {
-  alert("La entrada no es un número válido.");
 }
 
-
-
-
+edadUsuario();
